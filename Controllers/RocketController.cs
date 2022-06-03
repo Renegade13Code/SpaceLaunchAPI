@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SpaceLaunchAPI.Data;
+using SpaceLaunchAPI.Models.Domain;
+using SpaceLaunchAPI.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,44 +11,63 @@ namespace SpaceLaunchAPI.Controllers
     [ApiController]
     public class RocketController : ControllerBase
     {
-        private readonly SpaceLaunchDbContext dbContext;
+        private readonly IRocketRepository rocketRepo;
 
-        public RocketController(SpaceLaunchDbContext dbContext)
+        public RocketController(IRocketRepository rocketRepo)
         {
-            this.dbContext = dbContext;
+            this.rocketRepo = rocketRepo;
         }
         // GET: api/<RocketController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var rockets = dbContext.Rockets.ToList();
+            var rockets = await rocketRepo.GetAllAsync();
             return Ok(rockets);
             //return new string[] { "value1", "value2" };
         }
 
         // GET api/<RocketController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return "value";
+            var rocket = await rocketRepo.GetByIdAsync(id);
+            if (rocket == null)
+            {
+                return Ok("not found");
+            }
+            return Ok(rocket);
         }
 
         // POST api/<RocketController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] Rocket rocket)
         {
+            var newRocket= await rocketRepo.AddAsync(rocket);
+            return Ok(newRocket);
         }
 
         // PUT api/<RocketController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(string id, [FromBody] Rocket rocket)
         {
+            var updatedRocket = await rocketRepo.UpdateAsync(id, rocket);
+            if (updatedRocket == null)
+            {
+                return Ok("not found");
+            }
+            return Ok(updatedRocket);
         }
 
         // DELETE api/<RocketController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
+            var deletedRocket = await rocketRepo.DeleteAsync(id);
+            if (deletedRocket == null)
+            {
+                return Ok("not found");
+            }
+            return Ok(deletedRocket);
         }
     }
 }

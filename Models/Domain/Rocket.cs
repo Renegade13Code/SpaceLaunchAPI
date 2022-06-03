@@ -23,9 +23,5 @@ namespace SpaceLaunchAPI.Models.Domain
 
         [MaxLength(512)]
         public string Engines { get; set; }
-
-
-
-
     }
 }
