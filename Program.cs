@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SpaceLaunchAPI.Data;
+using SpaceLaunchAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,9 @@ builder.Services.AddDbContext<SpaceLaunchDbContext>(options =>
     // UseSqlServer takes the connection string to the database as its argument. Here the connection string is grabed from the appsettings.json file via the builder object.
     options.UseSqlServer(builder.Configuration.GetConnectionString("SpaceLaunch"));
 });
+
+//Register repositories for dependency injection
+builder.Services.AddScoped<IRocketRepository , RocketRepository>();
 
 var app = builder.Build();
 
