@@ -10,9 +10,11 @@ namespace SpaceLaunchAPI.Data
 
         }
 
-        //Still need to define domain models for data!
+        public DbSet<Launch> Launches { get; set; }
         public DbSet<Rocket> Rockets { get; set; }
-        //public DbSet<Launch> Launches { get; set; }
-        //public DbSet<PayLoad> PayLoads { get; set; }
+        public DbSet<Payload> PayLoads { get; set; }
+        public DbSet<LaunchPad> LaunchPads { get; set; }
+        public DbSet<Capsule> Capsules { get; set; }
+
     }
 }
