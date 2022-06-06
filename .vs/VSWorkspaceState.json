@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Migrations",
+    "\\Models",
+    "\\Models\\Domain"
+  ],
+  "SelectedNode": "\\SpaceLaunchAPI.csproj",
+  "PreviewInSolutionExplorer": false
+}
