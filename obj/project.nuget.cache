@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "mAOsrA6HRjsd7ZttaTe4wStEWtNe+Pf6I/5zWtQ9/J4pAqlX6ZU9+15lw7Uuif9DqpJJUwDUKKg1WAfixQ8QBg==",
+  "dgSpecHash": "PnpwiVtyIbTNVMGAwiP2vae8UAXw8CBgP3VzT51ATYzX1sT05fzyvsjBFAlIIik72MH1O53hLelwhuCELrqN6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\bbdnet2685\\.nuget\\packages\\amazon.extensions.cognitoauthentication\\2.2.2\\amazon.extensions.cognitoauthentication.2.2.2.nupkg.sha512",
+    "C:\\Users\\bbdnet2685\\.nuget\\packages\\awssdk.cognitoidentity\\3.7.0.2\\awssdk.cognitoidentity.3.7.0.2.nupkg.sha512",
+    "C:\\Users\\bbdnet2685\\.nuget\\packages\\awssdk.cognitoidentityprovider\\3.7.4.2\\awssdk.cognitoidentityprovider.3.7.4.2.nupkg.sha512",
+    "C:\\Users\\bbdnet2685\\.nuget\\packages\\awssdk.core\\3.7.11.13\\awssdk.core.3.7.11.13.nupkg.sha512",
+    "C:\\Users\\bbdnet2685\\.nuget\\packages\\awssdk.securitytoken\\3.7.0.2\\awssdk.securitytoken.3.7.0.2.nupkg.sha512",
     "C:\\Users\\bbdnet2685\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bbdnet2685\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\bbdnet2685\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
