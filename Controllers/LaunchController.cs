@@ -45,6 +45,18 @@ namespace SpaceLaunchAPI.Controllers
             return Ok(LaunchDTO);
         }
 
+        // GET api/<LaaunchController>/5
+        [HttpGet("/api/name/{name}")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var launchDomainName = await launchRepo.GetByNameAsync(name);
+            if(launchDomainName == null)
+            {
+                return NotFound($"Launch with name: {name}, not found");
+            }
+            return Ok(launchDomainName);
+        }
+
         // POST api/<LaaunchController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] LaunchRequest addLaunchRequest)

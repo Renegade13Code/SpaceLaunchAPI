@@ -35,6 +35,12 @@ namespace SpaceLaunchAPI.Repository
             return foundLaunch;
         }
 
+        public async Task<IEnumerable<Launch?>> GetByNameAsync(string name)
+        {
+            var foundLaunchName = await  dbContext.Launches.Where(x => x.Name.Contains(name)).ToListAsync();
+            return foundLaunchName;
+        }
+
         public async Task<Launch> AddAsync(Launch launch)
         {
             //Remove this and see if entity generates id

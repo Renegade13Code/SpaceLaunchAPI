@@ -23,6 +23,18 @@ namespace SpaceLaunchAPI.Repository
             return foundRocket;
         }
 
+        public async Task<IEnumerable<Rocket?>> GetByCompanyAsync(string company)
+        {
+            var foundRocket = await dbContext.Rockets.Where(x => x.Company.Contains(company)).ToListAsync();
+            return foundRocket;
+        }
+
+        public async Task<IEnumerable<Rocket?>> GetByCountryAsync(string country)
+        {
+            var foundRocketManufacturer = await dbContext.Rockets.Where(x => x.Country.Contains(country)).ToListAsync();
+            return foundRocketManufacturer;
+        }
+
         public async Task<Rocket> AddAsync(Rocket rocket)
         {
             //generate id 
