@@ -9,6 +9,7 @@ namespace SpaceLaunchAPI.Repository
         public Task<IEnumerable<Rocket?>> GetByCountryAsync(string country);
         public Task<IEnumerable<Rocket?>> GetByCompanyAsync(string company); 
         public Task<Rocket> AddAsync(Rocket rocket);
+        public Task<IEnumerable<Rocket?>> GetRocketStatus(bool status);
         public Task<Rocket?> DeleteAsync(string id);
         public Task<Rocket?> UpdateAsync(string id, Rocket rocket);
     }
