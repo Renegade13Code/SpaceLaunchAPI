@@ -38,6 +38,18 @@ namespace SpaceLaunchAPI.Controllers
             return Ok(rocket);
         }
 
+        // GET api/<RocketController>/5
+        [HttpGet("filter")]
+        public async Task<IActionResult> Get(bool isActive)
+        {
+            var rocket = await rocketRepo.GetRocketStatus(isActive);
+            if (rocket == null)
+            {
+                return Ok("not found");
+            }
+            return Ok(rocket);
+        }
+
         // POST api/<RocketController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Rocket rocket)
