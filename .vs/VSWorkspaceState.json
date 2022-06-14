@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Controllers",
-    "\\Migrations",
-    "\\Models",
-    "\\Models\\Domain"
+    ""
   ],
-  "SelectedNode": "\\SpaceLaunchAPI.csproj",
+  "SelectedNode": "\\SpaceLaunchAPI.sln",
   "PreviewInSolutionExplorer": false
 }

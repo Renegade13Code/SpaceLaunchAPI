@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj": {}
+    "C:\\Users\\dombt001\\Documents\\repositories\\the-hive\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj": {
+    "C:\\Users\\dombt001\\Documents\\repositories\\the-hive\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj",
+        "projectUniqueName": "C:\\Users\\dombt001\\Documents\\repositories\\the-hive\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj",
         "projectName": "SpaceLaunchAPI",
-        "projectPath": "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj",
-        "packagesPath": "C:\\Users\\bbdnet2685\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bbdnet2685\\GradProgram\\levelUps\\DesignPatterns\\SpaceLaunchAPI\\obj\\",
+        "projectPath": "C:\\Users\\dombt001\\Documents\\repositories\\the-hive\\SpaceLaunchAPI\\SpaceLaunchAPI.csproj",
+        "packagesPath": "C:\\Users\\dombt001\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dombt001\\Documents\\repositories\\the-hive\\SpaceLaunchAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\bbdnet2685\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dombt001\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,14 +44,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AWSSDK.CognitoIdentityProvider": {
-              "target": "Package",
-              "version": "[3.7.4.2, )"
-            },
-            "Amazon.Extensions.CognitoAuthentication": {
-              "target": "Package",
-              "version": "[2.2.2, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.5, )"
@@ -81,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
