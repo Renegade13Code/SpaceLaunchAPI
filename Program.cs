@@ -28,6 +28,7 @@ builder.Services.AddScoped<IPayloadRepository, PayloadRepository>();
 builder.Services.AddScoped<IBuilderLaunches, LaunchBuilder>();
 builder.Services.AddScoped<ICapsuleRepository, CapsuleRepository>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
