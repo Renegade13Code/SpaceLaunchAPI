@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SpaceLaunchAPI.Buidler;
+using SpaceLaunchAPI.Builder;
 using SpaceLaunchAPI.Models.Domain;
 using SpaceLaunchAPI.Models.DTO;
 using SpaceLaunchAPI.Repository;
@@ -13,9 +15,12 @@ namespace SpaceLaunchAPI.Controllers
     {
         private readonly ILaunchRepository launchRepo;
 
-        public LaunchController(ILaunchRepository launchRepo)
+        private readonly IBuilderLaunches _builderLaunch;
+
+        public LaunchController(ILaunchRepository launchRepo, IBuilderLaunches builderLaunches)
         {
             this.launchRepo = launchRepo;
+            this._builderLaunch = builderLaunches;
         }
         // GET: api/<LaaunchController>
         [HttpGet]
@@ -45,15 +50,7 @@ namespace SpaceLaunchAPI.Controllers
         public async Task<IActionResult> Post([FromBody] LaunchRequest addLaunchRequest)
         {
             //DO validation check here on ids passed in
-            var LaunchDomain = new Launch()
-            {
-                Name = addLaunchRequest.Name,
-                Date = addLaunchRequest.Date,
-                RocketId = addLaunchRequest.RocketId,
-                LaunchpadId = addLaunchRequest.LaunchpadId,
-                Success = addLaunchRequest.Success,
-                Failures = addLaunchRequest.Failures
-            };
+            var LaunchDomain = CreateLaunch(addLaunchRequest);
 
             LaunchDomain = await launchRepo.AddAsync(LaunchDomain);
             var LaunchDTO = LaunchDomainToDTO(LaunchDomain);
@@ -139,6 +136,20 @@ namespace SpaceLaunchAPI.Controllers
             }
             
             return launchDTO;
+        }
+
+        private Launch CreateLaunch(LaunchRequest addLaunchRequest)
+        {
+            _builderLaunch.setLaunchName(addLaunchRequest.Name);
+            _builderLaunch.setLaunchDate(addLaunchRequest.Date);
+            _builderLaunch.setRocketId(addLaunchRequest.RocketId);
+            _builderLaunch.setLaunchPadId(addLaunchRequest.LaunchpadId);
+            _builderLaunch.setSuccess(addLaunchRequest.Success);
+            _builderLaunch.setFailure(addLaunchRequest.Failures);
+
+            Console.WriteLine("checki here mate", _builderLaunch.getLaunch());
+
+            return _builderLaunch.getLaunch();
         }
 
         private string PayloadDomainToDTO(Payload payload)
