@@ -2,7 +2,7 @@
 {
     public class CapsuleRequest
     {
-        public string Serial { get; set; }
+        public string Serial { get; set; } 
         public string Status { get; set; }
         public int ReuseCount { get; set; }
         public int WaterLandings { get; set; }
