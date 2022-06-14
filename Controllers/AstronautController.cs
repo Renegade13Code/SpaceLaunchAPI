@@ -15,9 +15,8 @@ namespace SpaceLaunchAPI.Controllers
         public AstronautController(IAstronautRepository astronautRepo)
         {
             this.astronautRepo = astronautRepo;
-            //this.url = "http://api.open-notify.org/astros.json";
         }
-        // GET: api/<PayloadController>
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -25,34 +24,11 @@ namespace SpaceLaunchAPI.Controllers
             request.Method = "Get";
             using var webResponse = request.GetResponse();
             using var webStream = webResponse.GetResponseStream();
-
             using var reader = new StreamReader(webStream);
             var data = reader.ReadToEnd();
-            //var astronauts = await astronautRepo.GetAllAsync();
-            Console.WriteLine(data);
             return Ok(data);
         }
         #region private methods
-
-        //private PayloadDTO PayloadToDTOConverter(Payload payload)
-        //{
-        //    var payloadDTO = new PayloadDTO()
-        //    {
-        //        PayloadId = payload.PayloadId,
-        //        Name = payload.Name,
-        //        Type = payload.Type,
-        //        Reused = payload.Reused,
-        //        Manufacturers = payload.Manufacturers,
-        //        MassKg = payload.MassKg,
-        //        MassLb = payload.MassLb,
-        //        Orbit = payload.Orbit,
-        //        ReferenceSystem = payload.ReferenceSystem,
-        //        Regime = payload.Regime,
-        //        LaunchId = payload.LaunchId,
-        //    };
-
-        //    return payloadDTO;
-        //}
 
         #endregion
     }

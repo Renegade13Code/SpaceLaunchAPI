@@ -15,7 +15,6 @@ namespace SpaceLaunchAPI.Repository
         public async Task<IEnumerable<Astronaut>> GetAllAsync()
         {
             return await dbContext.Astronauts
-                //.Include(x => x.LaunchModel)
                 .ToListAsync();
         }
         #region private methods
