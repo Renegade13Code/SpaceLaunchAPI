@@ -20,10 +20,10 @@ namespace SpaceLaunchAPI.Repository
                 .ToListAsync();
         }
 
-        public async Task<EmailObserver?> GetByIdAsync(string id)
+        public async Task<IEnumerable<EmailObserver?>> GetByIdAsync(string id)
         {
             var foundObserver = await  dbContext.EmailRecipient
-                .FirstOrDefaultAsync(x => x.EmailId == id);
+                .Where(x => x.LaunchId == id).ToListAsync();
 
             return foundObserver;
         }

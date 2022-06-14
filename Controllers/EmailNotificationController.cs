@@ -2,7 +2,7 @@
 using SpaceLaunchAPI.Models.Domain;
 using SpaceLaunchAPI.Models.DTO;
 using SpaceLaunchAPI.Repository;
-
+using SpaceLaunchAPI.Services;
 
 namespace SpaceLaunchAPI.Controllers
 {
@@ -29,6 +29,34 @@ namespace SpaceLaunchAPI.Controllers
 
             EmailDomain = await ObserverRepo.AddAsync(EmailDomain);
             return Ok(EmailDomain);
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Get(string Id)
+        {
+            var Emails = await ObserverRepo.GetByIdAsync(Id);
+
+            if (Emails == null)
+            {
+               return NotFound($"Emails with Launch id {Id} not found");
+            }
+
+            var listOfUsers = Emails.Select(x => x);
+            Subject subject = new Subject(Id, DateTime.UtcNow);
+            ISubject LaunchNotification = subject;
+
+            Observer observer;
+
+            foreach (var currentUser in listOfUsers)
+            {
+                observer = new Observer(currentUser.Email, LaunchNotification);
+            }
+
+            LaunchNotification.NotifyObserver();
+
+            return Ok(listOfUsers);
+
+            
         }
     }
 }

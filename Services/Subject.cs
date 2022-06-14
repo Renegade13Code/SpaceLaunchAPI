@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using SpaceLaunchAPI.Repository;
+
 namespace SpaceLaunchAPI.Services;
 
 public class Subject : ISubject
@@ -32,4 +34,5 @@ public class Subject : ISubject
             observer.Update(); // smtp email notification to be performed here
         }
     }
+
 }

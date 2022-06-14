@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Mail;
 using SpaceLaunchAPI.Repository;
+using EASendMail;
 
 namespace SpaceLaunchAPI.Services
 {
@@ -16,26 +17,49 @@ namespace SpaceLaunchAPI.Services
 
         public void Update()
         {
-            Console.WriteLine("sending email");
+            Console.WriteLine("sending email "+ Email );
             try
             {
-                MailMessage message = new MailMessage();
-                SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("myemail@gmail.com");
-                message.To.Add(new MailAddress(Email));
-                message.Subject = "Test";
-                message.IsBodyHtml = false; //to make message body as html  
-                message.Body = "This is and email notifying you of the space launch in one hour";
-                smtp.Port = 587;
-                smtp.Host = "smtp.gmail.com"; //for gmail host  
-                smtp.EnableSsl = true;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("FromMailAddress", "password");
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(message);
-            } catch
+                SmtpMail oMail = new SmtpMail("TryIt");
+
+                // Your gmail email address
+                oMail.From = "launchspace200@gmail.com";
+                // Set recipient email address
+                oMail.To = Email;
+
+                // Set email subject
+                oMail.Subject = "Space Launch Reminder";
+                // Set email body
+                oMail.TextBody = "this is a test mail from launch reminder";
+
+                // Gmail SMTP server address
+                SmtpServer oServer = new SmtpServer("smtp.gmail.com");
+
+                // Gmail user authentication
+                // For example: your email is "gmailid@gmail.com", then the user should be the same
+                oServer.User = "launchspace200@gmail.com";
+
+                // Create app password in Google account
+                // https://support.google.com/accounts/answer/185833?hl=en
+                oServer.Password = "SpaceLaunchAPI";
+
+                // Set 465 port
+                oServer.Port = ;
+
+                // detect SSL/TLS automatically
+                oServer.ConnectType = SmtpConnectType.ConnectSSLAuto;
+
+                Console.WriteLine("start to send email over SSL ...");
+
+                EASendMail.SmtpClient oSmtp = new();
+                oSmtp.SendMail(oServer, oMail);
+
+                Console.WriteLine("email was sent successfully!");
+            }
+            catch (Exception ep)
             {
-                Console.WriteLine("Couldn't send email for");
+                Console.WriteLine("failed to send email with the following error:");
+                Console.WriteLine(ep.Message);
             }
         }
     }
