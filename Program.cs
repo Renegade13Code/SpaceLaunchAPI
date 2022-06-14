@@ -23,8 +23,8 @@ builder.Services.AddDbContext<SpaceLaunchDbContext>(options =>
 //Register repositories for dependency injection
 builder.Services.AddScoped<IRocketRepository , RocketRepository>();
 builder.Services.AddScoped<ILaunchpadRepository , LaunchpadRepository>();
-builder.Services.AddScoped<IPayloadRepository , PayloadRepository>();
 builder.Services.AddScoped<ILaunchRepository , LaunchRepository>();
+builder.Services.AddScoped<IPayloadRepository, PayloadRepository>();
 builder.Services.AddScoped<IBuilderLaunches, LaunchBuilder>();
 builder.Services.AddScoped<ICapsuleRepository, CapsuleRepository>();
 
