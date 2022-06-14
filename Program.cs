@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using SpaceLaunchAPI.Buidler;
+using SpaceLaunchAPI.Builder;
 using SpaceLaunchAPI.Data;
 using SpaceLaunchAPI.Repository;
 
@@ -23,6 +25,8 @@ builder.Services.AddScoped<IRocketRepository , RocketRepository>();
 builder.Services.AddScoped<ILaunchpadRepository , LaunchpadRepository>();
 builder.Services.AddScoped<IPayloadRepository , PayloadRepository>();
 builder.Services.AddScoped<ILaunchRepository , LaunchRepository>();
+builder.Services.AddScoped<IBuilderLaunches, LaunchBuilder>();
+builder.Services.AddScoped<ICapsuleRepository, CapsuleRepository>();
 
 var app = builder.Build();
 
