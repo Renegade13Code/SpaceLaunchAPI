@@ -23,6 +23,7 @@ builder.Services.AddScoped<IRocketRepository , RocketRepository>();
 builder.Services.AddScoped<ILaunchpadRepository , LaunchpadRepository>();
 builder.Services.AddScoped<ILaunchRepository , LaunchRepository>();
 builder.Services.AddScoped<IPayloadRepository, PayloadRepository>();
+builder.Services.AddScoped<IAstronautRepository, AstronautRepository>();
 
 var app = builder.Build();
 

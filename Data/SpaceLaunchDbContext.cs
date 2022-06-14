@@ -15,6 +15,7 @@ namespace SpaceLaunchAPI.Data
         public DbSet<Payload> PayLoads { get; set; }
         public DbSet<LaunchPad> LaunchPads { get; set; }
         public DbSet<Capsule> Capsules { get; set; }
+        public DbSet<Astronaut> Astronauts { get; set; }
 
     }
 }
