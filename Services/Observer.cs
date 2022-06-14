@@ -44,7 +44,7 @@ namespace SpaceLaunchAPI.Services
                 oServer.Password = "SpaceLaunchAPI";
 
                 // Set 465 port
-                oServer.Port = ;
+                oServer.Port = 587;
 
                 // detect SSL/TLS automatically
                 oServer.ConnectType = SmtpConnectType.ConnectSSLAuto;
