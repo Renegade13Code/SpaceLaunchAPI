@@ -35,6 +35,12 @@ namespace SpaceLaunchAPI.Repository
             return foundRocketManufacturer;
         }
 
+        public async Task<IEnumerable<Rocket?>> GetRocketStatus(bool status)
+        {
+            var rocketsFiltered = await dbContext.Rockets.Where(x => x.IsActive == status).ToListAsync();
+            return rocketsFiltered;
+        }
+
         public async Task<Rocket> AddAsync(Rocket rocket)
         {
             //generate id 
