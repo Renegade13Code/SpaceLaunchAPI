@@ -27,6 +27,7 @@ builder.Services.AddScoped<ILaunchRepository , LaunchRepository>();
 builder.Services.AddScoped<IPayloadRepository, PayloadRepository>();
 builder.Services.AddScoped<IBuilderLaunches, LaunchBuilder>();
 builder.Services.AddScoped<ICapsuleRepository, CapsuleRepository>();
+builder.Services.AddScoped<IAstronautRepository, AstronautRepository>();
 
 
 var app = builder.Build();
