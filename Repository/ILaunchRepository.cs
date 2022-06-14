@@ -6,6 +6,7 @@ namespace SpaceLaunchAPI.Repository
     {
         public Task<IEnumerable<Launch>> GetAllAsync();
         public Task<Launch?> GetByIdAsync(string id);
+        public Task<IEnumerable<Launch?>> GetByNameAsync(string name); 
         public Task<Launch> AddAsync(Launch launch);
         public Task<Launch?> DeleteAsync(string id);
         public Task<Launch?> UpdateAsync(string id, Launch launch);

@@ -33,7 +33,29 @@ namespace SpaceLaunchAPI.Controllers
             var rocket = await rocketRepo.GetByIdAsync(id);
             if (rocket == null)
             {
-                return Ok("not found");
+                return NotFound("Specified ID: " + "'" + id + "'" + " not found.");
+            }
+            return Ok(rocket);
+        }
+
+        [HttpGet("/api/company/{company}")]
+        public async Task<IActionResult> GetByCompany(string company)
+        {
+            var rocket = await rocketRepo.GetByCompanyAsync(company);
+            if (rocket == null)
+            {
+                return NotFound("Specified Company: " + "'" + company + "'" + " not found.");
+            }
+            return Ok(rocket);
+        }
+
+        [HttpGet("/api/country/{country}")]
+        public async Task<IActionResult> GetByCountry(string country)
+        {
+            var rocket = await rocketRepo.GetByCountryAsync(country);
+            if (rocket == null)
+            {
+                return NotFound("Specified Country: " + "'" + country + "'" + " not found.");
             }
             return Ok(rocket);
         }
@@ -53,7 +75,7 @@ namespace SpaceLaunchAPI.Controllers
             var updatedRocket = await rocketRepo.UpdateAsync(id, rocket);
             if (updatedRocket == null)
             {
-                return Ok("not found");
+                return NotFound("Specified ID: " + "'" + id + "'" + " not found.");
             }
             return Ok(updatedRocket);
         }
@@ -65,7 +87,7 @@ namespace SpaceLaunchAPI.Controllers
             var deletedRocket = await rocketRepo.DeleteAsync(id);
             if (deletedRocket == null)
             {
-                return Ok("not found");
+                return NotFound("Specified ID: " + "'" + id + "'" + " not found.");
             }
             return Ok(deletedRocket);
         }
