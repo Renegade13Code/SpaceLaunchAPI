@@ -41,7 +41,7 @@ namespace SpaceLaunchAPI.Services
 
                 // Create app password in Google account
                 // https://support.google.com/accounts/answer/185833?hl=en
-                oServer.Password = "SpaceLaunchAPI";
+                oServer.Password = "qghwkhidonxbbspe";
 
                 // Set 465 port
                 oServer.Port = 587;
