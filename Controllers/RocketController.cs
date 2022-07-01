@@ -38,7 +38,7 @@ namespace SpaceLaunchAPI.Controllers
             return Ok(rocket);
         }
 
-        [HttpGet("filter")]
+        [HttpGet("active")]
         public async Task<IActionResult> Get(bool isActive)
         {
             var rocket = await rocketRepo.GetRocketStatus(isActive);
